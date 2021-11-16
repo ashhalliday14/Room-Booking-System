@@ -16,6 +16,7 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
 
     <title>Homepage</title>
   </head>
@@ -59,17 +60,19 @@
     </header>
 
     <div class="hero">
-      <br><br><br><br>
+      <br><br><br><br><br>
       <h3>Welcome to DigiTech's Room Booking System.</h3>
       <h4>View all our available rooms:</h4>
       <br><br>
-
+      <div class="cardbox">
       <?php
 
-        $sql = "SELECT class.ClassroomID, class.ClassroomName, class.NumOfPC, class.NumOfStudents, class.OffCampus
-                FROM   tblclassroom class 
+        $sql = "SELECT class.ClassroomID, class.ClassroomName, class.NumOfPC, class.NumOfStudents, class.OffCampus, im.Image
+                FROM   tblclassroom class,
+                       tblimage im
+                WHERE  im.ClassroomID = class.ClassroomID
                 ";
-                echo $sql;
+                //echo $sql;
 
         //run the query
         $result = mysqli_query($conn, $sql) 
@@ -77,7 +80,8 @@
         $row = mysqli_fetch_row($result);
         $resultCheck = mysqli_num_rows($result);
       ?>
-        <!--<div class="card">-->
+      
+        
           <?php
             if($resultCheck > 0)
             {
@@ -85,26 +89,25 @@
               {
                 ?>
                 <div class="card">                
-                <img src="img/Classroom<?php echo $row['ClassroomID'];?>.jpg" alt="Room Image" style="width:100%">
-                <h1><?php echo $row['ClassroomName'];?></h1>
-                <p>Number of PC's: <?php echo $row['NumOfPC'];?></p>
-                <p>Number of Students: <?php echo $row['NumOfStudents'];?></p>
-                <p>Off Campus? <?php if ($row['OffCampus'] == 0)
-                                     {
-                                       echo "No";
-                                     }
-                                     else if ($row['OffCampus'] == 1)
-                                     {
-                                       echo "Yes";
-                                     }
-                                     ?></p>
-                <!--<p><button>Click to View Room Layout</button></p>-->
-                </div>
+                  <img src="img/<?php echo $row['Image'];?>" alt="Room Image" style="width:100%">
+                  <h1><?php echo $row['ClassroomName'];?></h1>
+                  <p>Number of PC's: <?php echo $row['NumOfPC'];?></p>
+                  <p>Number of Students: <?php echo $row['NumOfStudents'];?></p>
+                  <p>Off Campus? <?php if ($row['OffCampus'] == 0)
+                                       {
+                                        echo "No";
+                                       }
+                                       else if ($row['OffCampus'] == 1)
+                                       {
+                                        echo "Yes";
+                                       }
+                                       ?></p>
+                </div>                                   
                 <?php
               }
             }
             ?>
-        <!--</div>-->
+        </div>
     </div>
   
 
