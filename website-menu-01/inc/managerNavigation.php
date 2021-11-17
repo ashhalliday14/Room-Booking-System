@@ -30,7 +30,7 @@
         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
             <li><a href="homepage.php" class="nav-link">Home</a></li>
             <li><a href="update_room_information.php" class="nav-link">Update Room Information</a></li>
-            <li><a href="" class="nav-link">Update Layouts</a></li>
+            <li><a href="update_layouts.php" class="nav-link">Update Layouts</a></li>
             <li><a href="logout.php" class="nav-link">Logout</a></li>
         </ul>
     </nav>
