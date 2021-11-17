@@ -57,30 +57,30 @@
             $groupSize = $_SESSION['groupSize'];
             $className = $_SESSION['className'];
 
-            //$id = $_GET['ClassroomID'];
-            //$name = $_GET['Name'];
-            //$pc = $_GET['PC'];
-            //$students = $_GET['Students'];
+            $id = $_GET['ClassroomID'];
+            $name = $_GET['Name'];
+            $pc = $_GET['PC'];
+            $students = $_GET['Students'];
 
-            echo $date ;
-            echo "------------------";
-            echo $startTime;
-            echo "------------------";
-            echo  $endTime;
-            echo "------------------";
-            echo $courseName;
-            echo "------------------";
-            echo $groupSize;
-            echo "------------------";
-            echo $className;
-            echo "------------------";
-            echo $id;
-            echo "------------------";
-            echo $name;
-            echo "------------------";
-            echo $pc;
-            echo "------------------";
-            echo  $students;
+            // echo $date ;
+            // echo "------------------";
+            // echo $startTime;
+            // echo "------------------";
+            // echo  $endTime;
+            // echo "------------------";
+            // echo $courseName;
+            // echo "------------------";
+            // echo $groupSize;
+            // echo "------------------";
+            // echo $className;
+            // echo "------------------";
+            // echo $id;
+            // echo "------------------";
+            // echo $name;
+            // echo "------------------";
+            // echo $pc;
+            // echo "------------------";
+            // echo  $students;
 
             ?>
 
@@ -98,20 +98,20 @@
 
         <?php
 
-            $validation = "SELECT NumOfStudents
-                           FROM   tblclassroom
-                           WHERE  ClassroomID = '$id'";
-                           echo $validation;
+            //$validation = "SELECT *
+                           //FROM   tblclassroom
+                           //WHERE  ClassroomID = '$id'";
+                           //echo $validation;
 
             //run the query
-            $result = mysqli_query($conn, $validation) 
-              or die("Unable to run query.");
-            $row = mysqli_fetch_row($result);
+            //$result = mysqli_query($conn, $validation) 
+              //or die("Unable to run query.");
+            //$row = mysqli_fetch_row($result);
             //$resultCheck = mysqli_num_rows($result);
             //echo $row['ClassroomID'];
             //echo $row['ClassroomName'];
             //echo $row['NumOfPC'];
-            echo $row['NumOfStudents'];
+            //echo $row['NumOfStudents'];
 
 
             //if($resultCheck > 0)
@@ -119,27 +119,27 @@
                 //while($row = mysqli_fetch_assoc($result))
                 //{
                   ?>
-                  <p ><?php //echo $row['ClassroomID']; ?></p>
+                  <p ><?php //echo $id; ?></p>
                   <p id="equiptext"><b><?php //echo $row['ClassroomName']; ?></b></p>
                   <p id="equiptext"><?php //echo "PC Count: " . $row['NumOfPC']; ?></p>
-                  <p id="equiptext"><?php echo "Student Count: " . $row['NumOfStudents']; ?></p>
+                  <p id="equiptext"><?php //echo "Student Count: " . $row['NumOfStudents']; ?></p>
                   <?php
                   //echo "students is" . $row['NumOfStudents'];
-                //}
+                //}//
             //}
 
-            if ($row['NumOfStudents'] >= $students)
-            {
-              echo "students will fit";
-            }
-            else if ($students > $row['NumOfStudents'])
-            {
-              echo "students do not fit";
-            }
-            else
-            {
-              echo "failed";
-            }
+            //if ($row['NumOfStudents'] >= $students)
+            //{
+              //echo "students will fit";
+            //}
+            //else if ($students > $row['NumOfStudents'])
+            //{
+              //echo "students do not fit";
+            //}
+            //else
+            //{
+              //echo "failed";
+            ///}
 
             //query to insert room booking into database
             $sql = "INSERT INTO tblbookclassroom (ClassroomID, ClassDate, ClassStartTime, ClassEndTime, Course, GroupName, ClassSize)
@@ -147,19 +147,19 @@
 
 
             //run the query
-            //$result = mysqli_query($conn, $sql) 
-            //or die("Unable to run query.");
+            $result = mysqli_query($conn, $sql) 
+              or die("Unable to run query.");
 
             //notify user room booking was a success
-            //if($result)
-            //{
-              //echo "Booking was successful";
-            //}
+            if($result)
+            {
+              echo "Booking was successful";
+            }
             //room booking was unsuccessful
-            //else
-            //{
-              //echo "Booking was not successful. Please try again";
-            //}
+            else
+            {
+              echo "Booking was not successful. Please try again";
+            }
 
         ?>
 
