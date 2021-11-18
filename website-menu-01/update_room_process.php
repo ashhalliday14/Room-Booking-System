@@ -69,9 +69,9 @@
 
             //query to find the classroom
             $sql = "SELECT * 
-                    FROM tblclassroom 
-                    WHERE ClassroomID='$id' 
-                    LIMIT 1";
+                    FROM   tblclassroom 
+                    WHERE  ClassroomID='$id' 
+                    LIMIT  1";
 
             //run the query
             $result = mysqli_query($conn, $sql) 
@@ -97,6 +97,25 @@
             <input type="text" name="NumOfStudents" value="<?php echo $row[3];?>" class="add_author">
             <br><br>
 
+            <label id="editlabel">Off Campus?</label>
+            <select>
+                <?php 
+                    if ($row['OffCampus'] == 0)
+                    {
+                        ?>
+                        <option value="no">No</option>
+                        <?php
+                    }
+                    else if ($row['OffCampus'] == 1)
+                    {
+                        ?>
+                        <option value="yes">Yes</option>
+                        <?php
+                    }
+                ?>      
+            </select>
+            <br><br>
+
             <input type="submit" value="Submit Changes" class="add_button" id="btn">
         </form>
 
@@ -109,9 +128,9 @@
 
             //query to find project
             $sql = "SELECT * 
-                    FROM tblClassroom 
-                    WHERE ClassroomID='$id' 
-                    LIMIT 1";
+                    FROM   tblclassroom 
+                    WHERE  ClassroomID='$id' 
+                    LIMIT  1";
 
             //run the query
             $result = mysqli_query($conn, $sql) 
@@ -129,9 +148,9 @@
                 if (!empty($classroomName) && !empty($numOfPC) && !empty($numOfStudents))
                 {
                     //sql to add changes to project
-                    $sql = "UPDATE tblClassroom 
-                            SET ClassroomName = '$classroomName', NumOfPC = '$numOfPC', NumOfStudents = '$numOfStudents' 
-                            WHERE ClassroomID = $id";
+                    $sql = "UPDATE tblclassroom 
+                            SET    ClassroomName = '$classroomName', NumOfPC = '$numOfPC', NumOfStudents = '$numOfStudents' 
+                            WHERE  ClassroomID = $id";
 
                     //run the query
                     $result = mysqli_query($conn, $sql)

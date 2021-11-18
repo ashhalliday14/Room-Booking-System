@@ -54,7 +54,7 @@
             //$id = $_GET['ClassroomID'];
             $id = $_SESSION['layoutID'];
             $uploadFile = $_SESSION['uploadFile'];
-            echo $uploadFile;
+            //echo $uploadFile;
 
             ?>
 
@@ -68,15 +68,7 @@
 
     <div class="hero">
       <br><br><br><br><br>
-      <!-- <h3>Welcome to DigiTech's Room Booking System.</h3>
-      <h4>Select a room layout to update:</h4>
-      <br><br>
-      <div class="cardbox">
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            Select image to upload:
-            <input type="file" name="fileToUpload" id="fileToUpload">
-            <input type="submit" value="Upload Image" name="submit">
-        </form> -->
+
       <?php
 
         $sql = "UPDATE tblimage

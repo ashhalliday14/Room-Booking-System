@@ -62,27 +62,40 @@
     </header>
 
     <div class="hero">
-        <br><br><br><br>
+        <br><br><br><br><br>
         <h3>Book a Room</h3>
         
         <div class="displayclassrooms">    
+          <br>
             <form action="book_room_process.php" method="get">
                 <table>
                     <tr>
                         <th>Class Date:</th>
+                        <th>     </th>
                         <th>Class Start Time:</th>
+                        <th>     </th>
                         <th>Class End Time:</th>
+                        <th>     </th>
                         <th>Course Name:</th>
+                        <th>     </th>
                         <th>Group Size:</th>
+                        <th>     </th>
                         <th>Group Name:</th>
                     </tr>
+                    <br>
                     <tr>
                         <td><input type="date" id="date" name="class_date"></td>
+                        <td>     </td>
                         <td><input type="time" id="start_time" name="start_time"></td>
+                        <td>     </td>
                         <td><input type="time" id="end_time" name="end_time"></td>
+                        <td>     </td>
                         <td><input type="text" id="course_name" name="course_name"></td>
+                        <td>     </td>
                         <td><input type="number" id="group_size" name="group_size"></td>
+                        <td>     </td>
                         <td><input type="text" id="class_name" name="class_name"></td>
+                        <td>     </td>
                         <td><input type="submit" value="Book Room"></td>
                     </tr>
                 </table>
